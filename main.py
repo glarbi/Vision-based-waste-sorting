@@ -1,30 +1,35 @@
 import cv2
 import os
 
-vid = cv2.VideoCapture("../Videos/AI_Future_Jobs.mp4") #2
-crntframe = 0 #3
+vid = cv2.VideoCapture("../sorting_waste.mp4") #2
+if (not vid.isOpened()):
+	print ("file not found")
+else:
+	crntframe = 0 #3
 
-#4
-if not os.path.exists('data'):
-  	 os.makedirs('data')
+	#4
+	if not os.path.exists('data'):
+		 os.makedirs('data')
+	frame_count = vid.get(cv2.CAP_PROP_FRAME_COUNT) # get number of frames in the video
+	print ("frame_count", frame_count)
+	i=1
+	#while True: #5
+	while i<frame_count: # loop until arrived to the end of the video
+		vid.set(1,i); # specify wich frame to get
+		success, frame = vid.read() #6
+		if (success):
+			#cv2.imshow("Output", frame) #7
+			#cv2.imwrite("./data/frame" + str(crntframe) + '.png', frame) #8
+			cv2.imwrite("./data/frame" + str(i) + '.png', frame) #8
+			#crntframe += 1 #9
 
-while True: #5
+		#10
+	 #   if cv2.waitKey(1) & 0xFF == ord('q'):
+	 #       break
+		i += 100 # get 1 frame for every 100 frames of video
 
-    success, frame = vid.read() #6
-
-    cv2.imshow("Output", frame) #7
-
-    cv2.imwrite("./data/frame" + str(crntframe) + '.png', frame) #8
-
-    crntframe += 1 #9
-
-    #10
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-
-        break
-
-vid.release() #11
-cv2.destroyAllWindows()  #12
+	vid.release() #11
+	#cv2.destroyAllWindows()  #12
 
 """
 1. import the cv2 library to work with images.
