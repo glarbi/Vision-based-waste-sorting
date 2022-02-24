@@ -11,9 +11,13 @@ This machine consists of:
 ## Process diagram
 ![image](https://user-images.githubusercontent.com/42723115/155526710-b02fec71-6785-4266-905e-c849e1e22fba.png)
 * The waste passes on the treadmill under the camera.
+
 ![image](https://user-images.githubusercontent.com/42723115/155526850-818a6d1e-9f25-4375-85a7-10e59bd0321f.png)
+
 * The camera sends the images to the computer.
+
 ![image](https://user-images.githubusercontent.com/42723115/155526938-6ba32b6a-89fc-455e-abac-e2a329e76ab7.png)
+
 * The computer uses Artificial Intelligence techniques to:
     - Detecting objects
     - Recognizing objects.
